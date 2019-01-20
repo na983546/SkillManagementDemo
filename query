@@ -1,0 +1,13 @@
+select * from TBL_Employee_1625922;
+select * from TBL_Skill_1625922;
+ALTER TABLE TBL_Skill_1625922 ADD FOREIGN KEY (EmpId) REFERENCES TBL_Employee_1625922(EmpID);
+commit
+	
+create table TBL_Skill_1625922 (
+	SkillID varchar(20) Primary key,
+	EmpId varchar(20),
+	Technology varchar(20) Not null,
+	Skilllevel varchar(20) check (Skilllevel in ('BEGINNER','PROFICIENT','INTERMEDIATE')),
+	Experience int check (Experience > 0),
+	FOREIGN KEY (EmpId) REFERENCES TBL_Employee_1625922(EmpID)
+	);	
